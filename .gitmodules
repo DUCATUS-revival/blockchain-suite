@@ -1,0 +1,3 @@
+[submodule "ducatuscore-ducatuscoin"]
+	path = ducatuscore-ducatuscoin
+	url = git@github.com:Ducatus/ducatuscore-ducatuscoin.git
