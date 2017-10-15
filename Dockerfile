@@ -25,6 +25,7 @@ ADD ./docker-files/bitcoin.conf /root/ducatusnode/data/bitcoin.conf
 ADD ./docker-files/bitcoin.conf /root/ducatusnode/data/litecoin.conf
 ADD ./docker-files/bitcoin.conf /root/ducatusnode/data/ducatuscoin.conf
 
+# Expose ports
 EXPOSE 3001
 
 CMD ["/bin/bash"]
