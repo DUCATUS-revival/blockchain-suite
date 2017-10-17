@@ -10,7 +10,11 @@ RUN npm install -g litecore-node@latest && \
 litecore-node create ducatusnode && \
 cd ducatusnode && \
 litecore-node install insight-lite-api && \
-litecore-node install insight-lite-ui
+litecore-node install insight-lite-ui && \
+rm -rf node_modules/insight-lite-ui
+
+WORKDIR /root/ducatusnode/node_modules/insight-lite-api
+RUN npm install request@2.81.0 --save
 
 RUN cp /usr/local/bin/ducatuscoind /root/ducatusnode/node_modules/litecore-node/bin/litecoind && \
 cp /usr/local/bin/ducatuscoind /root/ducatusnode/node_modules/litecore-node/bin/litecoin-0.13.2/bin/litecoind && \
@@ -25,7 +29,11 @@ ADD ./docker-files/bitcoin.conf /root/ducatusnode/data/bitcoin.conf
 ADD ./docker-files/bitcoin.conf /root/ducatusnode/data/litecoin.conf
 ADD ./docker-files/bitcoin.conf /root/ducatusnode/data/ducatuscoin.conf
 
-# Expose ports
-EXPOSE 3001
+ADD insight-ducatus-ui /root/ducatusnode/node_modules/
 
-CMD ["/bin/bash"]
+WORKDIR /root/ducatusnode
+
+# Expose ports
+EXPOSE 3001 9690 9691
+
+CMD ["litecore-node", "start"]
