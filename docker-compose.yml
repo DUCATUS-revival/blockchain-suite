@@ -1,26 +1,16 @@
 version: '2'
 
 services:
-        nginx:
-                image: nginx
-                restart: always
-                ports:
-                        - "80:80"
+        blockchain-api:
+                image: ducatus-blockchain-explorer
                 volumes:
-                        - ./nginx/conf.d:/etc/nginx/conf.d
-                links:
-                        - ducatus-blockchain-api
-
-        ducatus-blockchain-api:
-                image: ducatus-blockchain-explorer 
-                command: litecore-node start
-                restart: always
-                volumes:
-                        - blockchain-explorer-data-volume-1:/root/ducatusnode/data
+                        - blockchain-api-volume:/root/.ducatuscoin
+                        - ./ducatuscoin.conf:/root/.ducatuscoin/ducatuscoin.conf
                 ports:
+                        - "80:3001"
                         - "3001:3001"
                         - "9690:9690"
                         - "9691:9691"
 
 volumes:
-        blockchain-explorer-data-volume-1:
+        blockchain-explorer-volume:
