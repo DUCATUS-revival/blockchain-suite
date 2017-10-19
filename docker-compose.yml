@@ -4,7 +4,7 @@ services:
         blockchain-api:
                 image: ducatus-blockchain-explorer
                 volumes:
-                        - blockchain-api-volume:/root/.ducatuscoin
+                        - blockchain-api-volume:/root/ducatusnode/data
                         - ./ducatuscoin.conf:/root/.ducatuscoin/ducatuscoin.conf
                 ports:
                         - "80:3001"
@@ -13,4 +13,4 @@ services:
                         - "9691:9691"
 
 volumes:
-        blockchain-explorer-volume:
+        blockchain-api-volume:
