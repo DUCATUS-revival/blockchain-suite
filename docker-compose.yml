@@ -3,6 +3,7 @@ version: '2'
 services:
         blockchain-api:
                 image: ducatus-blockchain-explorer
+		restart: always
                 volumes:
                         - blockchain-api-volume:/root/ducatusnode/data
                         - ./ducatuscoin.conf:/root/.ducatuscoin/ducatuscoin.conf
