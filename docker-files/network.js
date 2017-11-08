@@ -8,7 +8,7 @@ var networkMaps = {};
 
 /**
  * A network is merely a map containing values that correspond to version
- * numbers for each litecoin network. Currently only supporting "livenet"
+ * numbers for each ducatuscoin network. Currently only supporting "livenet"
  * (a.k.a. "mainnet") and "testnet".
  * @constructor
  */
@@ -129,15 +129,14 @@ function removeNetwork(network) {
 addNetwork({
   name: 'livenet',
   alias: 'mainnet',
-  pubkeyhash: 0x31,
-  privatekey: 0xb1,
-  scripthash: 0x33,
-  xpubkey: 0x019da462,
-  xprivkey: 0x019d9cfe,
-  networkMagic: 0xf9beb4d9,
+  pubkeyhash: 0x3b,
+  privatekey: 0x81,
+  scripthash: 0x07,
+  xpubkey: 0x019da462, // How do I get this
+  xprivkey: 0x019d9cfe, // How do I get this
+  networkMagic: 0xf9beb4d9, // How do I get this
   port: 9691,
   dnsSeeds: [
-'dnsseed.ducatus.io'
   ]
 });
 
@@ -152,9 +151,9 @@ addNetwork({
   alias: 'regtest',
   pubkeyhash: 0x6f,
   privatekey: 0xef,
-  scripthash: 0x3a,
-  xpubkey: 0x0436f6e1,
-  xprivkey: 0x0436ef7d
+  scripthash: 0xc4,
+  xpubkey: 0x043587cf,
+  xprivkey: 0x04358394
 });
 
 /**
@@ -166,9 +165,13 @@ var testnet = get('testnet');
 // Add configurable values for testnet/regtest
 
 var TESTNET = {
-  PORT: 19335,
-  NETWORK_MAGIC: BufferUtil.integerAsBuffer(0xfdd2c8f1),
+  PORT: 18333,
+  NETWORK_MAGIC: BufferUtil.integerAsBuffer(0x0b110907),
   DNS_SEEDS: [
+    'testnet-seed.ducatuscoin.petertodd.org',
+    'testnet-seed.bluematt.me',
+    'testnet-seed.alexykot.me',
+    'testnet-seed.ducatuscoin.schildbach.de'
   ]
 };
 
@@ -179,7 +182,7 @@ for (var key in TESTNET) {
 }
 
 var REGTEST = {
-  PORT: 19444,
+  PORT: 18444,
   NETWORK_MAGIC: BufferUtil.integerAsBuffer(0xfabfb5da),
   DNS_SEEDS: []
 };
@@ -258,4 +261,3 @@ module.exports = {
   enableRegtest: enableRegtest,
   disableRegtest: disableRegtest
 };
-

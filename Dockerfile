@@ -1,4 +1,4 @@
-FROM ducatuscore-ducatuscoin
+FROM ducatuscore-ducatuscoin-p90x
 
 WORKDIR /root/
 
