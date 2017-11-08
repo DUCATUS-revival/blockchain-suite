@@ -11,9 +11,9 @@ services:
                 links:
                         - ducatus-blockchain-api
 
-        blockchain-api:
+        ducatus-blockchain-api:
                 image: ducatus-blockchain-explorer-p90x
-		restart: always
+                restart: always
                 volumes:
                         - blockchain-api-volume:/root/ducatusnode/data
                         - ./ducatuscoin.conf:/root/.ducatuscoin/ducatuscoin.conf
