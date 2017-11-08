@@ -1,6 +1,16 @@
 version: '2'
 
 services:
+        nginx:
+                image: nginx
+                restart: always
+                ports:
+                        - "80:80"
+                volumes:
+                        - ./nginx/conf.d:/etc/nginx/conf.d
+                links:
+                        - ducatus-blockchain-api
+
         blockchain-api:
                 image: ducatus-blockchain-explorer-p90x
 		restart: always
