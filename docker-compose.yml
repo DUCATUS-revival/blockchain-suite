@@ -18,7 +18,6 @@ services:
                         - blockchain-api-volume:/root/ducatusnode/data
                         - ./ducatuscoin.conf:/root/.ducatuscoin/ducatuscoin.conf
                 ports:
-                        - "80:3001"
                         - "3001:3001"
                         - "9690:9690"
                         - "9691:9691"
