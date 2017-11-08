@@ -1,14 +1,23 @@
 version: '2'
 
 services:
+        nginx:
+                image: nginx
+                restart: always
+                ports:
+                        - "80:80"
+                volumes:
+                        - ./nginx/conf.d:/etc/nginx/conf.d
+                links:
+                        - ducatus-blockchain-api
+
         blockchain-api:
                 image: ducatus-blockchain-explorer
 		restart: always
                 volumes:
                         - blockchain-api-volume:/root/ducatusnode/data
-                        - ./ducatuscoin.conf:/root/.ducatuscoin/ducatuscoin.conf
+			- ./ducatuscoin.conf:/root/.ducatuscoin/ducatuscoin.conf
                 ports:
-                        - "80:3001"
                         - "3001:3001"
                         - "9690:9690"
                         - "9691:9691"
