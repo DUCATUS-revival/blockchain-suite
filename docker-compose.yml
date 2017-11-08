@@ -11,12 +11,12 @@ services:
                 links:
                         - ducatus-blockchain-api
 
-        blockchain-api:
+        ducatus-blockchain-api:
                 image: ducatus-blockchain-explorer
-		restart: always
+                restart: always
                 volumes:
                         - blockchain-api-volume:/root/ducatusnode/data
-			- ./ducatuscoin.conf:/root/.ducatuscoin/ducatuscoin.conf
+                        - ./ducatuscoin.conf:/root/.ducatuscoin/ducatuscoin.conf
                 ports:
                         - "3001:3001"
                         - "9690:9690"
